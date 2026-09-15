@@ -27,6 +27,7 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -641,6 +642,15 @@ section.tight { padding: 56px 0; }
 }
 .form-status.is-success { display: block; background: var(--accent-soft); color: #0a5c52; }
 .form-status.is-error { display: block; background: #fdecea; color: #9a2b1e; }
+.form-status.is-loading { display: block; background: var(--surface-soft); color: var(--muted); }
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 .contact-panel {
   background: var(--surface-deep);

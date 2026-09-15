@@ -35,32 +35,50 @@
     });
   });
 
-  // Lightweight client-side handling for forms with no backend attached.
-  // Wire data-endpoint to a real form handler (e.g. a Cloudflare Pages
-  // Function or Formspree) to send submissions somewhere.
+  // Forms POST to /api/submit (a Cloudflare Pages Function that sends mail
+  // via Cloudflare Email Routing). The form's own action/method work with
+  // JS disabled too; this just upgrades it to an inline, no-reload result.
   document.querySelectorAll("form[data-form]").forEach(function (form) {
     var status = form.querySelector(".form-status");
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
+    var submitBtn = form.querySelector('button[type="submit"]');
 
-      var data = new FormData(form);
-      var subject = encodeURIComponent(form.dataset.subject || "Website enquiry");
-      var lines = [];
-      data.forEach(function (value, key) {
-        if (value) lines.push(key + ": " + value);
-      });
-      var mailto = "mailto:hello@fluentai.co.uk?subject=" + subject + "&body=" + encodeURIComponent(lines.join("\n"));
+    form.addEventListener("submit", function (e) {
+      if (!form.checkValidity()) {
+        return; // let the browser show native validation messages
+      }
+      e.preventDefault();
 
       if (status) {
-        status.textContent = form.dataset.success || "Thanks — your message has been prepared. We aim to respond within one working day.";
-        status.className = "form-status is-success";
+        status.textContent = "Sending…";
+        status.className = "form-status is-loading";
       }
-      form.reset();
-      window.location.href = mailto;
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      })
+        .then(function (res) {
+          return res.json().then(function (payload) {
+            return { ok: res.ok && payload.ok, error: payload.error };
+          });
+        })
+        .catch(function () {
+          return { ok: false, error: null };
+        })
+        .then(function (result) {
+          if (submitBtn) submitBtn.disabled = false;
+          if (!status) return;
+          if (result.ok) {
+            status.textContent = form.dataset.success || "Thanks — we've received your message. We aim to respond within one working day.";
+            status.className = "form-status is-success";
+            form.reset();
+          } else {
+            status.textContent = result.error || "Something went wrong. Please email hello@fluentai.co.uk directly.";
+            status.className = "form-status is-error";
+          }
+        });
     });
   });
 })();

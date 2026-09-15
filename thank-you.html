@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You — FluentAI</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="/">
+        <span class="mark"><svg class="icon"><use href="/assets/icons.svg#icon-spark"></use></svg></span>
+        FluentAI
+      </a>
+      <div class="header-cta">
+        <a class="btn btn-primary" href="/">Back to homepage</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="not-found" id="status-ok">
+      <div>
+        <span class="icon-wrap" style="width:64px;height:64px;border-radius:50%;background:var(--accent-soft);color:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;">
+          <svg class="icon" style="width:30px;height:30px;"><use href="/assets/icons.svg#icon-check"></use></svg>
+        </span>
+        <h1 style="font-size: 2rem;">Thanks — your message is on its way</h1>
+        <p class="lede" style="margin: 14px auto 28px; max-width: 46ch;">We've received your submission and aim to respond within one working day.</p>
+        <a class="btn btn-primary" href="/">Return home</a>
+      </div>
+    </div>
+    <div class="not-found" id="status-error" hidden>
+      <div>
+        <div class="code">!</div>
+        <h1>Something went wrong</h1>
+        <p class="lede" style="margin: 14px auto 28px; max-width: 46ch;">We couldn't send your message. Please email us directly at <a href="mailto:hello@fluentai.co.uk">hello@fluentai.co.uk</a>.</p>
+        <a class="btn btn-primary" href="/contact.html">Back to contact page</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 FluentAI Labs Ltd. All rights reserved. Registered in England, Company No. 15923404</span>
+        <span class="legal-links">
+          <a href="/terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="/privacy-policy.html">Privacy Policy</a>
+          <a href="/cookie-policy.html">Cookie Policy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (new URLSearchParams(location.search).get("error")) {
+      document.getElementById("status-ok").hidden = true;
+      document.getElementById("status-error").hidden = false;
+    }
+  </script>
+</body>
+</html>

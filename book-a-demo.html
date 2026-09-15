@@ -69,33 +69,39 @@
         <div class="form-card">
           <h2 style="margin-bottom: 6px;">Request your demo</h2>
           <p class="form-note" style="margin-bottom: 22px;">Tell us a little about your organisation and we'll be in touch to arrange a time.</p>
-          <form data-form data-subject="Demo request" data-success="Thanks — your demo request has been prepared. We aim to respond within one working day.">
+          <form data-form action="/api/submit" method="POST" data-success="Thanks — your demo request has been sent. We aim to respond within one working day.">
+            <input type="hidden" name="form_type" value="demo">
+            <div class="field hp-field" aria-hidden="true">
+              <label for="website">Leave this field empty</label>
+              <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </div>
             <div class="field-row">
               <div class="field">
                 <label for="name">Full name</label>
-                <input id="name" name="Name" type="text" required autocomplete="name">
+                <input id="name" name="name" type="text" required autocomplete="name">
               </div>
               <div class="field">
                 <label for="email">Work email</label>
-                <input id="email" name="Email" type="email" required autocomplete="email">
+                <input id="email" name="email" type="email" required autocomplete="email">
               </div>
             </div>
             <div class="field-row">
               <div class="field">
                 <label for="org">Organisation</label>
-                <input id="org" name="Organisation" type="text" required autocomplete="organization">
+                <input id="org" name="organisation" type="text" required autocomplete="organization">
               </div>
               <div class="field">
                 <label for="role">Role</label>
-                <input id="role" name="Role" type="text" autocomplete="organization-title">
+                <input id="role" name="role" type="text" autocomplete="organization-title">
               </div>
             </div>
             <div class="field">
               <label for="message">What would you like to cover?</label>
-              <textarea id="message" name="Message" placeholder="Tell us about your enquiry flow, safeguarding needs or timelines"></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your enquiry flow, safeguarding needs or timelines"></textarea>
             </div>
             <button class="btn btn-primary btn-block" type="submit">Book Demo</button>
             <div class="form-status" role="status"></div>
+            <p class="form-note" style="margin-top: 14px;">By submitting this form, you agree to our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
           </form>
         </div>
       </div>
