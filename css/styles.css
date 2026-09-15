@@ -470,6 +470,14 @@ section.tight { padding: 56px 0; }
   border-radius: 12px;
   padding: 10px 20px;
 }
+.client-logo-text {
+  font-weight: 800;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--surface-deep);
+  letter-spacing: -0.01em;
+}
 .case-card .case-tag {
   font-size: 0.75rem;
   font-weight: 700;
@@ -569,6 +577,7 @@ section.tight { padding: 56px 0; }
 }
 
 .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 28px 0; }
+.stat-row.cols-4 { grid-template-columns: repeat(2, 1fr); }
 .stat-row .stat {
   background: var(--surface-soft);
   border-radius: var(--radius-sm);
