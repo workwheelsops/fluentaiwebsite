@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 130" role="img" aria-label="FluentAI">
+  <title>FluentAI</title>
+  <defs>
+    <filter id="logoShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#04162b" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#logoShadow)">
+    <path d="M48 112 Q24 119 14 146 Q45 136 67 113 Z" fill="#0d3f70"/>
+    <rect x="4" y="18" width="240" height="96" rx="27" fill="#0d3f70"/>
+
+    <path d="M226 70 Q211 74 204 89 Q222 83 235 70 Z" fill="#1fc6a3"/>
+    <rect x="209" y="2" width="92" height="66" rx="18" fill="#1fc6a3"/>
+  </g>
+
+  <text x="122" y="82" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="52" fill="#ffffff" letter-spacing="-1">Fluent</text>
+  <text x="255" y="45" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="33" fill="#ffffff" letter-spacing="-0.5">Ai</text>
+</svg>

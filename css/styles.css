@@ -96,25 +96,15 @@ button { font: inherit; }
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: -0.02em;
   text-decoration: none;
-  color: var(--ink);
   flex-shrink: 0;
 }
 
-.brand .mark {
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+.brand-logo {
+  height: 38px;
+  width: auto;
+  display: block;
 }
-.brand .mark svg { width: 19px; height: 19px; }
 
 .nav-primary {
   display: flex;
