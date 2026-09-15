@@ -75,7 +75,7 @@
             status.className = "form-status is-success";
             form.reset();
           } else {
-            status.textContent = result.error || "Something went wrong. Please email hello@fluentai.co.uk directly.";
+            status.textContent = result.error || "Something went wrong. Please email tim@fluentai.uk directly.";
             status.className = "form-status is-error";
           }
         });

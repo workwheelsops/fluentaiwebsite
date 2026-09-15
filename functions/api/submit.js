@@ -5,17 +5,17 @@
 // One-off setup required in the Cloudflare dashboard for the fluentai.uk
 // Pages project:
 //   1. Zone > Email > Email Routing: enable it for fluentai.uk, and add
-//      hello@fluentai.co.uk as a verified destination address.
+//      tim@fluentai.uk as a verified destination address.
 //   2. Pages project > Settings > Functions > Email bindings: add a
 //      binding named SEND_EMAIL, "Send email" destination address
-//      hello@fluentai.co.uk.
+//      tim@fluentai.uk.
 //
 // FROM_ADDRESS must be on a domain with Email Routing enabled in the same
 // Cloudflare account (fluentai.uk).
 import { EmailMessage } from "cloudflare:email";
 
 const FROM_ADDRESS = "noreply@fluentai.uk";
-const TO_ADDRESS = "hello@fluentai.co.uk";
+const TO_ADDRESS = "tim@fluentai.uk";
 
 export async function onRequestPost(context) {
   const { request, env } = context;
@@ -67,7 +67,7 @@ export async function onRequestPost(context) {
     const message = new EmailMessage(FROM_ADDRESS, TO_ADDRESS, raw);
     await env.SEND_EMAIL.send(message);
   } catch (err) {
-    return fail(wantsJson, request, "We couldn't send your message right now. Please email hello@fluentai.co.uk directly.", 502);
+    return fail(wantsJson, request, "We couldn't send your message right now. Please email tim@fluentai.uk directly.", 502);
   }
 
   return succeed(wantsJson, request);
