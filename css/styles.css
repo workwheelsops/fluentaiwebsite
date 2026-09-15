@@ -455,13 +455,21 @@ section.tight { padding: 56px 0; }
   height: 150px;
   background: linear-gradient(135deg, var(--surface-deep), var(--primary-dark));
   display: flex;
-  align-items: flex-end;
-  padding: 18px 22px;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.05rem;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 .case-card .case-body { padding: 24px; }
+
+.client-logo { max-height: 44px; max-width: 80%; width: auto; object-fit: contain; }
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 20px;
+}
 .case-card .case-tag {
   font-size: 0.75rem;
   font-weight: 700;
@@ -488,6 +496,9 @@ section.tight { padding: 56px 0; }
   color: #fff;
   padding: 80px 0 64px;
 }
+.case-hero-logo { margin-bottom: 24px; }
+.case-hero .client-logo { max-height: 40px; display: block; }
+.case-hero .logo-chip { padding: 12px 22px; }
 .case-hero .case-tag {
   display: inline-block;
   font-size: 0.78rem;
