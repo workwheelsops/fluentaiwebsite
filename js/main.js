@@ -35,9 +35,9 @@
     });
   });
 
-  // Forms POST to /api/submit (a Cloudflare Pages Function that sends mail
-  // via Cloudflare Email Routing). The form's own action/method work with
-  // JS disabled too; this just upgrades it to an inline, no-reload result.
+  // Forms POST to Formspree (see the form's action attribute). The form's
+  // own action/method work with JS disabled too; this just upgrades it to
+  // an inline, no-reload result instead of a redirect.
   document.querySelectorAll("form[data-form]").forEach(function (form) {
     var status = form.querySelector(".form-status");
     var submitBtn = form.querySelector('button[type="submit"]');
@@ -60,12 +60,17 @@
         headers: { Accept: "application/json" },
       })
         .then(function (res) {
-          return res.json().then(function (payload) {
-            return { ok: res.ok && payload.ok, error: payload.error };
-          });
+          return res
+            .json()
+            .catch(function () {
+              return {};
+            })
+            .then(function (payload) {
+              return { ok: res.ok, payload: payload };
+            });
         })
         .catch(function () {
-          return { ok: false, error: null };
+          return { ok: false, payload: null };
         })
         .then(function (result) {
           if (submitBtn) submitBtn.disabled = false;
@@ -75,7 +80,13 @@
             status.className = "form-status is-success";
             form.reset();
           } else {
-            status.textContent = result.error || "Something went wrong. Please email tim@fluentai.uk directly.";
+            var message = null;
+            if (result.payload && Array.isArray(result.payload.errors) && result.payload.errors.length) {
+              message = result.payload.errors.map(function (e) { return e.message; }).join(" ");
+            } else if (result.payload && result.payload.error) {
+              message = result.payload.error;
+            }
+            status.textContent = message || "Something went wrong. Please email tim@fluentai.uk directly.";
             status.className = "form-status is-error";
           }
         });
