@@ -462,6 +462,7 @@ section.tight { padding: 56px 0; }
 .case-card .case-body { padding: 24px; }
 
 .client-logo { max-height: 44px; max-width: 80%; width: auto; object-fit: contain; }
+.client-logo--mark { max-height: 76px; }
 .logo-chip {
   display: inline-flex;
   align-items: center;
@@ -469,14 +470,6 @@ section.tight { padding: 56px 0; }
   background: #fff;
   border-radius: 12px;
   padding: 10px 20px;
-}
-.client-logo-text {
-  font-weight: 800;
-  font-size: 0.98rem;
-  line-height: 1.25;
-  text-align: center;
-  color: var(--surface-deep);
-  letter-spacing: -0.01em;
 }
 .case-card .case-tag {
   font-size: 0.75rem;
@@ -506,6 +499,7 @@ section.tight { padding: 56px 0; }
 }
 .case-hero-logo { margin-bottom: 24px; }
 .case-hero .client-logo { max-height: 40px; display: block; }
+.case-hero .client-logo--mark { max-height: 68px; }
 .case-hero .logo-chip { padding: 12px 22px; }
 .case-hero .case-tag {
   display: inline-block;

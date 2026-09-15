@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="240" viewBox="0 0 220 240" role="img" aria-label="Citizens Advice">
+  <title>Citizens Advice</title>
+  <path d="M68 196 Q52 207 42 228 Q74 220 90 198 Z" fill="#0b3d6e"/>
+  <circle cx="110" cy="105" r="100" fill="#0b3d6e"/>
+  <text x="110" y="98" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="30" fill="#ffffff">citizens</text>
+  <text x="110" y="134" text-anchor="middle" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="30" fill="#ffffff">advice</text>
+</svg>
