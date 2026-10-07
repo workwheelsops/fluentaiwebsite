@@ -1,4 +1,4 @@
 # Legacy URLs from the old Squarespace site, redirected so Google drops
 # them from its index instead of repeatedly reporting them as 404s.
 /cart            /                                          301
-/case-studies-1  /case-studies/herts-young-homeless.html    301
+/case-studies-1  /case-studies/herts-young-homeless    301
