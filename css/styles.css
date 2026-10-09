@@ -414,7 +414,7 @@ section.tight { padding: 56px 0; }
   border-radius: var(--radius-lg);
   padding: 34px;
 }
-.stat-panel h4 {
+.stat-panel h3 {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -761,7 +761,7 @@ section.tight { padding: 56px 0; }
 .footer-brand .brand { color: #fff; margin-bottom: 14px; }
 .footer-brand p { color: rgba(255,255,255,0.6); font-size: 0.92rem; }
 .footer-cols { display: flex; gap: 56px; flex-wrap: wrap; }
-.footer-col h4 {
+.footer-col h3 {
   font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
