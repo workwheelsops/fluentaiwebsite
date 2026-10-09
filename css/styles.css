@@ -14,6 +14,7 @@
   --primary-soft: #e9eefc;
   --accent: #0e9384;
   --accent-soft: #e2f6f2;
+  --accent-text: #0a7363;
   --warn: #b5450e;
   --radius-sm: 10px;
   --radius-md: 16px;
@@ -476,7 +477,7 @@ section.tight { padding: 56px 0; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--accent-text);
   margin-bottom: 10px;
   display: block;
 }
